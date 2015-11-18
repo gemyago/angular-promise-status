@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <title>Promise Status Filter test</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/jasmine.min.css">
+  <script src="https://code.angularjs.org/1.4.7/angular.min.js"></script>  
+</head>
+<body style='padding: 40px;'>
+  
+  <div ng-controller="PromiseStatusTestController as vm">
+    <form ng-submit="vm.resolveDeferredAction() | promiseStatus:status" ng-init='status = {}'>
+      <div class='form-group'>
+        <button class='btn btn-primary' ng-disabled='status.inProgress'>Resolve deferred action</button>
+        <span class='ng-hide' ng-show='status.inProgress'>Resolving deferred action...</span>
+        <span class='ng-hide label label-success' ng-show='status.resolved'>Deferred action resolved</span>
+      </div>
+    </form>
+  </div>
+
+  <div ng-controller="PromiseStatusTestController as vm">
+    <form ng-submit="vm.rejectDeferredAction() | promiseStatus:status" ng-init='status = {}'>
+      <div class='form-group'>
+        <button class='btn btn-primary btn-danger' ng-disabled='status.inProgress'>Reject deferred action</button>
+        <span class='ng-hide' ng-show='status.inProgress'>Rejecting deferred action...</span>
+        <span class='ng-hide label label-danger' ng-show='status.rejected'>Deferred action rejected</span>
+      </div>
+    </form>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>  
+  <script src="./app.js"></script>
+  <script src="../lib/promiseStatusFilter.js"></script>
+
+  <!-- Jasmine and Specs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/jasmine.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/jasmine-html.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/boot.min.js"></script>
+  <script src="https://code.angularjs.org/1.4.7/angular-mocks.js"></script>
+
+  <script src="./promiseStatusFilterSpec.js"></script>
+
+  <div class='jasmine_html-reporter'>
+    Hello
+  </div>
+</body>
+</html>

@@ -1,6 +1,6 @@
 # Angular filter to handle promise status
-Code related to the blogpost
-http://evgmya.blogspot.com/2015/11/angular-handling-promise-state-using.html
+Code related to blogpost
+http://evgmya.blogspot.com/2015/11/angular-handling-promise-status-with-filter.html
 ## General usage
 Suppose you have a controller action
 

@@ -9,7 +9,7 @@
 <body style='padding: 40px;'>
   
   <div ng-controller="PromiseStatusTestController as vm">
-    <form ng-submit="vm.resolveDeferredAction() | promiseStatus:status" ng-init='status = {}'>
+    <form ng-submit="status = (vm.resolveDeferredAction() | promiseStatus)">
       <div class='form-group'>
         <button class='btn btn-primary' ng-disabled='status.inProgress'>Resolve deferred action</button>
         <span class='ng-hide' ng-show='status.inProgress'>Resolving deferred action...</span>
@@ -19,7 +19,7 @@
   </div>
 
   <div ng-controller="PromiseStatusTestController as vm">
-    <form ng-submit="vm.rejectDeferredAction() | promiseStatus:status" ng-init='status = {}'>
+    <form ng-submit="status = (vm.rejectDeferredAction() | promiseStatus)">
       <div class='form-group'>
         <button class='btn btn-primary btn-danger' ng-disabled='status.inProgress'>Reject deferred action</button>
         <span class='ng-hide' ng-show='status.inProgress'>Rejecting deferred action...</span>

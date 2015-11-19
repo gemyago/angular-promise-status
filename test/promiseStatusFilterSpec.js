@@ -1,5 +1,5 @@
 describe('promiseStatusFilter', function() {
-  var subject, deferred, status, $rootScope;
+  var subject, deferred, $rootScope;
 
   beforeEach(module('app'));
 
@@ -7,11 +7,10 @@ describe('promiseStatusFilter', function() {
     $rootScope = _$rootScope_;
     subject = promiseStatusFilter;
     deferred = $q.defer();
-    status = {};
   }));
 
   it('should set initial flags', function() {
-    subject(deferred.promise, status);    
+    var status = subject(deferred.promise);
     expect(status).toEqual({
       inProgress: true,
       resolved: false,
@@ -20,7 +19,7 @@ describe('promiseStatusFilter', function() {
   });
 
   it('should set resolved flags', function() {
-    subject(deferred.promise, status);
+    var status = subject(deferred.promise);
     deferred.resolve();
     $rootScope.$digest();
     expect(status).toEqual({
@@ -31,7 +30,7 @@ describe('promiseStatusFilter', function() {
   });
 
   it('should set rejected flags', function() {
-    subject(deferred.promise, status);
+    var status = subject(deferred.promise);
     deferred.reject();
     $rootScope.$digest();
     expect(status).toEqual({

@@ -1,9 +1,7 @@
 # Angular filter to handle promise status
-
 Code related to the blogpost
 http://evgmya.blogspot.com/2015/11/angular-handling-promise-state-using.html
-
-# General usage
+## General usage
 Suppose you have a controller action
 
 ```javascript
